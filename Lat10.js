@@ -1,4 +1,3 @@
-// Dataset contoh produk (mengandung category, tags, dan rating)
 const products = [
     { 
         id: 1, 
@@ -47,7 +46,6 @@ const products = [
     }
 ];
 
-// --- LATIHAN 10.1: Fungsi Frequency Counting Umum ---
 function countFrequency(array) {
     return array.reduce((counts, item) => {
         counts[item] = (counts[item] || 0) + 1;
@@ -55,21 +53,15 @@ function countFrequency(array) {
     }, {});
 }
 
-// --- LATIHAN 10.2: Penerapan pada Data Produk ---
-
-// 1. Menghitung frekuensi kategori produk
 const categoriesArray = products.map(p => p.category);
 const categoryFrequency = countFrequency(categoriesArray);
 
-// 2. Menghitung frekuensi seluruh tags (menggunakan flatMap dari Bagian 4)
 const allTags = products.flatMap(p => p.tags);
 const tagFrequency = countFrequency(allTags);
 
-// 3. Menghitung frekuensi rating (dibulatkan ke bilangan bulat terdekat)
 const roundedRatings = products.map(p => Math.round(p.rating));
 const ratingFrequency = countFrequency(roundedRatings);
 
-// --- UJI COBA / OUTPUT DI KONSOL ---
 console.log("=== Frekuensi Kategori Produk ===");
 console.log(categoryFrequency);
 
